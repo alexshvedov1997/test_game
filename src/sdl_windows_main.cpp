@@ -6,35 +6,24 @@
 #include "Renderer/ResourceManager.h"
 #include <string>
 #include "Renderer/ResourceManager.h"
+#include "Renderer/ElementBuffer.h"
 
 using namespace std;
 
-int width = 600;
-int height = 800;
+int width = 640;
+int height = 640;
 
 float vertices[] = {
-	-0.5f , -0.5f, 0.0,
-	0.5f, -0.5f , 0.0f,
-	0.0f, 0.5f, 0.0f
+	-1.f , -1.f, 0.0,
+	1.f, -1.f , 0.0f,
+      1.f, 1.f, 0.0f
+	
 };
 
-
-const char* vertexShaderSource = "#version 430 core\n"
-"layout (location = 0) in vec3 aPos; \n"
-"void main() \n"
-"{\n"
-"gl_Position  = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
-"}\0";
-
-
-const char* fragmentShaderSource = "#version 430 core\n"
-"out vec4 FragColor ;\n"
-"void main()\n"
-"{\n"
-"FragColor = vec4(1.0f, 1.0f, 0.65f, 1.0f); "
-
-"}\0";
-
+unsigned int indices[] = {
+	0, 1, 3,
+	1,2,3
+};
 
 int SDL_main(int argc, char* argv[]) {
 
@@ -45,7 +34,7 @@ int SDL_main(int argc, char* argv[]) {
 		return - 1;
 }
 	
-	SDL_Window* window = SDL_CreateWindow("Fist OpenGL project", 100, 100, width, height, SDL_WINDOW_OPENGL);
+	SDL_Window* window = SDL_CreateWindow("Fist OpenGL project", 100, 100, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 	SDL_GLContext context = SDL_GL_CreateContext(window);
 
 	if (!gladLoadGL()) {
@@ -59,7 +48,10 @@ int SDL_main(int argc, char* argv[]) {
 	auto program = manager.getShaderProgram("DefaultProgram");
 	Renderer::VertexBuffer vertexBuffer;
 	vertexBuffer.init_veretx_buffer(vertices);
+	//Renderer::ElementBuffer elementBuffer;
+	//elementBuffer.init_element_buffer(indices);
 	puts("Success");
+	
 	vertexBuffer.bind();
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
@@ -79,6 +71,8 @@ int SDL_main(int argc, char* argv[]) {
 		program->use();
 		glBindVertexArray(VAO);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//elementBuffer.bind();
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		SDL_GL_SwapWindow(window);
 	}
 	SDL_GL_DeleteContext(context);

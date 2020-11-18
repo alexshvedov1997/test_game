@@ -23,15 +23,12 @@
 	}
 
 	std::shared_ptr<Renderer::ShaderProgram> ResourceManager::loadShaders(const std::string& shadersProgramName, const std::string& vertexShaderPath, const std::string& fragmentShaderPath) {
-		std::string vertexShaderStr = getFileData(vertexShaderPath);
-		std::cout << "resource Manager VertexShader Data: " << vertexShaderStr << std::endl;
+		std::string vertexShaderStr = getFileData(vertexShaderPath);		
 		if (vertexShaderStr.empty()) {
 			std::cerr << "Resource Manager :: Vertex Shaders empty" << std::endl;
 			return NULL;
 		}
-
 		std::string fragmentShaderStr = getFileData(fragmentShaderPath);
-		std::cout << "resource Manager Fragmenthader Data: " << fragmentShaderStr << std::endl;
 		if (fragmentShaderStr.empty()) {
 			std::cerr << "Resource Manager :: Fragmemt Shaders empty" << std::endl;
 			return NULL;

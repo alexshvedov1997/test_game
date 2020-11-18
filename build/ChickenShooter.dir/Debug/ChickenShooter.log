@@ -1,2 +1,4 @@
-﻿  sdl_windows_main.cpp
+﻿  VertexBuffer.cpp
+  sdl_windows_main.cpp
+  Создание кода...
   ChickenShooter.vcxproj -> D:\projectC++\testGame\build\bin\Debug\ChickenShooter.exe

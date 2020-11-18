@@ -14,6 +14,8 @@ src/Renderer/ShaderProgram.h
 src/Renderer/ShaderProgram.cpp
 src/Renderer/ResourceManager.cpp
 src/Renderer/ResourceManager.h
+src/Renderer/ElementBuffer.cpp
+src/Renderer/ElementBuffer.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

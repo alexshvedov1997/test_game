@@ -316,6 +316,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\ShaderProgram.cpp" />
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\ResourceManager.cpp" />
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\ResourceManager.h" />
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\ElementBuffer.cpp" />
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\ElementBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\projectC++\testGame\build\ZERO_CHECK.vcxproj">

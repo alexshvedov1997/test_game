@@ -13,6 +13,9 @@
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\ElementBuffer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\VertexBuffer.h">
@@ -22,6 +25,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\ElementBuffer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
