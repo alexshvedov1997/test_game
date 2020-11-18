@@ -1,0 +1,2 @@
+D:\projectC++\testGame\build\external\glad\Debug\glad.pdb
+D:\projectC++\testGame\build\external\glad\glad.dir\Debug\glad.pdb

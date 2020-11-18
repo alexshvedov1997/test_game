@@ -1,0 +1,10 @@
+^D:\PROJECTC++\TESTGAME\BUILD\CMAKEFILES\E98D02A7FAC30FC5CDC7B89C444CCB86\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/projectC++/testGame -BD:/projectC++/testGame/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/projectC++/testGame/build/ChickenShooter.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
