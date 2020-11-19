@@ -7,6 +7,7 @@
 #include <string>
 #include "Renderer/ResourceManager.h"
 #include "Renderer/ElementBuffer.h"
+#include "Renderer/VertexArray.h"
 
 using namespace std;
 
@@ -26,23 +27,17 @@ unsigned int indices[] = {
 };
 
 int SDL_main(int argc, char* argv[]) {
-
 	cout << "Path " << argv[0];
-	
 	if(SDL_Init(SDL_INIT_EVERYTHING) != 0) {
 		cout << "Crash" << endl;
 		return - 1;
 }
-	
 	SDL_Window* window = SDL_CreateWindow("Fist OpenGL project", 100, 100, width, height, SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE);
 	SDL_GLContext context = SDL_GL_CreateContext(window);
-
 	if (!gladLoadGL()) {
 		cout << "Can't initialize gl" << endl;
 		return -1;
 	}
-	
-	
 	ResourceManager manager("D:\\projectC++\\testGame\\res\\shaders\\ret");
 	manager.loadShaders("DefaultProgram" ,"vertexShader.txt", "fragmentShader.txt");
 	auto program = manager.getShaderProgram("DefaultProgram");
@@ -51,13 +46,9 @@ int SDL_main(int argc, char* argv[]) {
 	//Renderer::ElementBuffer elementBuffer;
 	//elementBuffer.init_element_buffer(indices);
 	puts("Success");
-	
 	vertexBuffer.bind();
-	unsigned int VAO;
-	glGenVertexArrays(1, &VAO);
-	glBindVertexArray(VAO);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
+	Renderer::VertexArray vertexArray;
+	vertexArray.init_vertexArray(0,3,GL_FLOAT, false, NULL);
 	bool quit = false;
 	SDL_Event e;
 	while (!quit) {	
@@ -69,7 +60,7 @@ int SDL_main(int argc, char* argv[]) {
 		glClearColor(0, 0.23, 0.45, 2);
 		glClear(GL_COLOR_BUFFER_BIT);
 		program->use();
-		glBindVertexArray(VAO);
+		vertexArray.bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		//elementBuffer.bind();
 		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

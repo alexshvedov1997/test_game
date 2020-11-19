@@ -16,6 +16,10 @@ src/Renderer/ResourceManager.cpp
 src/Renderer/ResourceManager.h
 src/Renderer/ElementBuffer.cpp
 src/Renderer/ElementBuffer.h
+src/Renderer/VertexArray.h
+src/Renderer/VertexArray.cpp
+
+
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
