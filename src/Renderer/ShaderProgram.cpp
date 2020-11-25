@@ -1,5 +1,6 @@
 #include "ShaderProgram.h"
 #include <iostream>
+#include<glad/glad.h>
 
 namespace Renderer {
 
@@ -47,6 +48,11 @@ namespace Renderer {
 			return false;
 		}
 		return true;
+	}
+
+	void ShaderProgram::setMatrix4(const std::string name, const glm::mat4& matrix) {
+		
+		glUniformMatrix4fv(glGetUniformLocation(m_id, name.c_str()), 1,GL_FALSE, glm::value_ptr(matrix));
 	}
 
 };

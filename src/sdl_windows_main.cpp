@@ -1,30 +1,37 @@
 #include<iostream>
 #include <SDL.h>
 #include <glad/glad.h>
+#include <string>
+#include "Resource/background.h"
+#include "Resource/Game.h"
+#include "Renderer/VertexArray.h"
 #include "Renderer/VertexBuffer.h"
 #include "Renderer/ShaderProgram.h"
-#include "Renderer/ResourceManager.h"
-#include <string>
-#include "Renderer/ResourceManager.h"
-#include "Renderer/ElementBuffer.h"
-#include "Renderer/VertexArray.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/mat4x4.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 
 using namespace std;
 
-int width = 640;
-int height = 640;
-
+int width = 880;
+int height = 720;
+/*
 float vertices[] = {
-	-1.f , -1.f, 0.0,
-	1.f, -1.f , 0.0f,
-      1.f, 1.f, 0.0f
+	-1.f , -0.2f, 0.5f,
+	0.3f, 0.8f , 0.5f,
+	  0.f, .2f, 0.5f
 	
 };
+*/
 
-unsigned int indices[] = {
-	0, 1, 3,
-	1,2,3
+float vertices[] = {
+	100.f , 300.f, 0.5f,
+	230.f, 180.f , 0.5f,
+	  400.f, 120.f, 0.5f
+
 };
+
 
 int SDL_main(int argc, char* argv[]) {
 	cout << "Path " << argv[0];
@@ -38,19 +45,34 @@ int SDL_main(int argc, char* argv[]) {
 		cout << "Can't initialize gl" << endl;
 		return -1;
 	}
-	ResourceManager manager("D:\\projectC++\\testGame\\res\\shaders\\ret");
-	manager.loadShaders("DefaultProgram" ,"vertexShader.txt", "fragmentShader.txt");
-	auto program = manager.getShaderProgram("DefaultProgram");
+	ResourceManager::load_resource("D:\\projectC++\\testGame\\res\\shaders\\ret");
+	ResourceManager::loadShaders("defaultShader", "vertexShader.txt", "fragmentShader.txt");
+	auto program = ResourceManager::getShaderProgram("defaultShader");
 	Renderer::VertexBuffer vertexBuffer;
-	vertexBuffer.init_veretx_buffer(vertices);
-	//Renderer::ElementBuffer elementBuffer;
-	//elementBuffer.init_element_buffer(indices);
-	puts("Success");
-	vertexBuffer.bind();
+	vertexBuffer.init_veretx_buffer(vertices, 9);
 	Renderer::VertexArray vertexArray;
-	vertexArray.init_vertexArray(0,3,GL_FLOAT, false, NULL);
+	vertexBuffer.bind();
+	vertexArray.init_vertexArray(0, 3, GL_FLOAT, false, NULL);
+	Game game;
 	bool quit = false;
 	SDL_Event e;
+	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
+
+		//glm::mat4 trans = glm::mat4(1.0f);
+	//trans = glm::rotate(trans, glm::radians(90.0f), glm::vec3(0.0, 0.0, 1.0));
+	//trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));
+	
+	glm::mat4 modelMatrix = glm::mat4(1.f);
+	modelMatrix = glm::translate(modelMatrix, glm::vec3(100.f, 50.f, 0.f));
+	glm::mat4 projectionMatrix = glm::ortho(0.f, static_cast<float>(width), 0.f, 
+		static_cast<float>(height), -100.f, 100.f);
+	
+	program->use();
+	glUniformMatrix4fv(glGetUniformLocation(program->getProgramId(), "modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
+	glUniformMatrix4fv(glGetUniformLocation(program->getProgramId(), "projectionMatrix"), 1, GL_FALSE, glm::value_ptr(projectionMatrix));
+//	program->setMatrix4("modelMatrix", modelMatrix);
+	//program->setMatrix4("projectionMatrix ", projectionMatrix);
 	while (!quit) {	
 		while (SDL_PollEvent(&e) != 0) {
 			if (e.type == SDL_QUIT) {
@@ -58,12 +80,14 @@ int SDL_main(int argc, char* argv[]) {
 			}	
 		}
 		glClearColor(0, 0.23, 0.45, 2);
-		glClear(GL_COLOR_BUFFER_BIT);
+		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		program->use();
 		vertexArray.bind();
 		glDrawArrays(GL_TRIANGLES, 0, 3);
-		//elementBuffer.bind();
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		game.bind();
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		
 		SDL_GL_SwapWindow(window);
 	}
 	SDL_GL_DeleteContext(context);

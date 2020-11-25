@@ -19,11 +19,20 @@ src/Renderer/ElementBuffer.h
 src/Renderer/VertexArray.h
 src/Renderer/VertexArray.cpp
 
+src/Resource/stb_image.h
+src/Resource/background.h
+src/Resource/background.cpp
 
+src/Renderer/Texture2D.h
+src/Renderer/Texture2D.cpp
+src/Resource/Game.cpp
+src/Resource/Game.h
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})
 target_link_libraries(${PROJECT_NAME} SDL2main SDL2)
+
+include_directories(external/glm)
 
 add_subdirectory(external/glad)
 target_link_libraries(ChickenShooter glad)

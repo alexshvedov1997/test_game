@@ -5,7 +5,7 @@ namespace Renderer{
 	public:
 		VertexBuffer();
 		~VertexBuffer();
-		void init_veretx_buffer(void * data);
+		void init_veretx_buffer(void * data, unsigned int count_element);
 		void bind();
 		void unbind();
 

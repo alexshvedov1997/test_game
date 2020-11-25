@@ -19,6 +19,15 @@
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\VertexArray.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Resource\background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\Texture2D.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Resource\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\VertexBuffer.h">
@@ -34,6 +43,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\VertexArray.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Resource\stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Resource\background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\Texture2D.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Resource\Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
