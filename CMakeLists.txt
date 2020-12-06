@@ -18,15 +18,19 @@ src/Renderer/ElementBuffer.cpp
 src/Renderer/ElementBuffer.h
 src/Renderer/VertexArray.h
 src/Renderer/VertexArray.cpp
-
 src/Resource/stb_image.h
 src/Resource/background.h
 src/Resource/background.cpp
-
+src/Resource/Hero.h
+src/Resource/Hero.cpp
 src/Renderer/Texture2D.h
 src/Renderer/Texture2D.cpp
 src/Resource/Game.cpp
 src/Resource/Game.h
+src/Renderer/Sprite.h
+src/Renderer/Sprite.cpp
+src/Renderer/AnimatedSprite.h
+src/Renderer/AnimatedSprite.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

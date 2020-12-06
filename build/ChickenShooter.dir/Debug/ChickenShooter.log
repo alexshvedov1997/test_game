@@ -1,2 +1,23 @@
-﻿  sdl_windows_main.cpp
+﻿  Game.cpp
+D:\VisualStudio\VC\Tools\MSVC\14.27.29110\include\xmemory(230,33): warning C4244: аргумент: преобразование "_Ty" в "const float", возможна потеря данных
+          with
+          [
+              _Ty=double
+          ]
+D:\VisualStudio\VC\Tools\MSVC\14.27.29110\include\memory(1428): message : выполняется компиляция ссылки на экземпляр шаблон функции "void std::_Construct_in_place<_Ty,std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec<2,float,glm::packed_highp>>(_Ty &,std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec<2,float,glm::packed_highp> &&) noexcept(false)"
+          with
+          [
+              _Ty=hero
+          ]
+D:\VisualStudio\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec<2,float,glm::packed_highp>>(std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec<2,float,glm::packed_highp> &&)"
+          with
+          [
+              _Ty=hero
+          ]
+D:\VisualStudio\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::_Ref_count_obj2<_Ty>::_Ref_count_obj2<std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec<2,float,glm::packed_highp>>(std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec<2,float,glm::packed_highp> &&)"
+          with
+          [
+              _Ty=hero
+          ]
+D:\projectC++\testGame\src\Resource\Game.cpp(51): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<hero> std::make_shared<hero,std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec2>(std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec2 &&)"
   ChickenShooter.vcxproj -> D:\projectC++\testGame\build\bin\Debug\ChickenShooter.exe

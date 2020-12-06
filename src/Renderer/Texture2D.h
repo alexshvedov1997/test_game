@@ -3,12 +3,23 @@
 #include <glad/glad.h>
 #include <string>
 #include <map>
+#include <glm/vec2.hpp>
 
 namespace Renderer {
     class Texture2D
     {
     public:
+        struct SubTexture2D {
+            glm::vec2 leftBottomUV;
+            glm::vec2 rightTopUV;
 
+            SubTexture2D(const glm::vec2& _leftBottomUV, const glm::vec2 _rightTopUV):leftBottomUV(_leftBottomUV),
+                rightTopUV(_rightTopUV)
+            {}
+            SubTexture2D() :leftBottomUV(0.0f), rightTopUV(1.0f){}
+
+
+        };
       
         Texture2D(const GLuint width, GLuint height,
             const unsigned char* data,
@@ -26,12 +37,14 @@ namespace Renderer {
         unsigned int width() const { return m_width; }
         unsigned int height() const { return m_height; }
         void bind() const;
-
+        void unbind() ;
+        void addSubTexture(const std::string& name, const glm::vec2 leftBottomUV, const glm::vec2 rightTopUV);
+      const  SubTexture2D& getSubTexture2D(const std::string& name);
     private:
         GLuint m_ID;
         GLenum m_mode;
         unsigned int m_width;
         unsigned int m_height;
-
+        std::map<std::string, SubTexture2D> m_subTexture;
     };
 }

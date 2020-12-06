@@ -24,5 +24,10 @@ namespace Renderer{
 
 	}
 
+	void VertexBuffer::updateBuffer(void* data, unsigned int count_element) {
+		glBindBuffer(GL_ARRAY_BUFFER, buffer_id);
+		glBufferData(GL_ARRAY_BUFFER, count_element * sizeof(float), data, GL_STATIC_DRAW);
+	}
+
 
 }

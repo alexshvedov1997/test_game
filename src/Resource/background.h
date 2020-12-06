@@ -16,6 +16,7 @@ public:
 	Background(const std::string& path, const std::string& vertex_path,
 		const std::string& fragment_path, const std::string& background_path);
 	void bind();
+	void unbind();
 private:
 	std::shared_ptr<Renderer::ShaderProgram> m_program;
 	std::shared_ptr<Renderer::Texture2D> m_texture;

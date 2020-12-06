@@ -323,10 +323,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="D:\projectC++\testGame\src\Resource\stb_image.h" />
     <ClInclude Include="D:\projectC++\testGame\src\Resource\background.h" />
     <ClCompile Include="D:\projectC++\testGame\src\Resource\background.cpp" />
+    <ClInclude Include="D:\projectC++\testGame\src\Resource\Hero.h" />
+    <ClCompile Include="D:\projectC++\testGame\src\Resource\Hero.cpp" />
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\Texture2D.h" />
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\Texture2D.cpp" />
     <ClCompile Include="D:\projectC++\testGame\src\Resource\Game.cpp" />
     <ClInclude Include="D:\projectC++\testGame\src\Resource\Game.h" />
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\Sprite.h" />
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\Sprite.cpp" />
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.h" />
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\projectC++\testGame\build\ZERO_CHECK.vcxproj">

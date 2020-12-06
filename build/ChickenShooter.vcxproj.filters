@@ -22,10 +22,19 @@
     <ClCompile Include="D:\projectC++\testGame\src\Resource\background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Resource\Hero.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\Texture2D.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D:\projectC++\testGame\src\Resource\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -51,10 +60,19 @@
     <ClInclude Include="D:\projectC++\testGame\src\Resource\background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Resource\Hero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\Texture2D.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D:\projectC++\testGame\src\Resource\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\Sprite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

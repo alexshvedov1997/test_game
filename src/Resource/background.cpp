@@ -42,8 +42,6 @@ Background::Background(const std::string& path, const std::string& vertex_path,
 	m_texture->bind();
 	textureBuffer.bind();
 	m_vertexArray->init_vertexArray(1, 2, GL_FLOAT, false, NULL);
-
-
 }
 
 void Background::bind(){
@@ -52,3 +50,11 @@ void Background::bind(){
 	m_vertexArray->bind();
 	m_elemenBuffer->bind();
 }
+
+void Background::unbind() {
+	m_texture->unbind();
+	m_vertexArray->unbind();
+	m_elemenBuffer->unbind();
+}
+
+

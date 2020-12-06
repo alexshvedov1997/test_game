@@ -19,5 +19,4 @@ namespace Renderer {
 	ElementBuffer::~ElementBuffer() {
 		glDeleteBuffers(1, &buffer_id);
 	}
-
 }
