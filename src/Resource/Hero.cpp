@@ -18,8 +18,8 @@ m_orienation(eOrientation::Right)
 
 }
 
-void hero::render(bool mirrored) {
-	m_pSprite->renderer(mirrored);
+void hero::render(bool mirrored, float level) {
+	m_pSprite->renderer(mirrored, level);
 }
 
 void hero::setOrientation(eOrientation orientation) {
@@ -36,6 +36,12 @@ void hero::setOrientation(eOrientation orientation) {
 		//m_pSprite->setState("heroLeftState");
 		m_pSprite->setState("heroRightState");
 		m_moveOffset.x = -1.0f;
+		m_moveOffset.y = 0.0f;
+		break;
+	case eOrientation::Stand:
+		//m_pSprite->setState("heroLeftState");
+		m_pSprite->setState("heroStand");
+		m_moveOffset.x = 0.0f;
 		m_moveOffset.y = 0.0f;
 		break;
 

@@ -13,7 +13,7 @@ namespace Renderer {
 			std::shared_ptr<Texture2D> texture,
 			glm::vec2 position, glm::vec2 size, float rotation = 0);
 		void insertState(std::string state, std::vector<std::pair<std::string, uint64_t>> subTextureDuartion);
-		void renderer(bool mirrored = false) override;
+		void renderer(bool mirrored = false, float level = 0.1f) override;
 		void update(uint64_t delta);
 		void setState(std::string state);
 	protected:

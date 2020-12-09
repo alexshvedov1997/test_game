@@ -31,6 +31,8 @@ src/Renderer/Sprite.h
 src/Renderer/Sprite.cpp
 src/Renderer/AnimatedSprite.h
 src/Renderer/AnimatedSprite.cpp
+src/Physics/PhysicsManager.h
+src/Physics/PhysicsManager.cpp
 )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES})

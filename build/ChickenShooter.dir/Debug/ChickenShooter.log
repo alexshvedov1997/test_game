@@ -19,5 +19,5 @@ D:\VisualStudio\VC\Tools\MSVC\14.27.29110\include\memory(2072): message : вып
           [
               _Ty=hero
           ]
-D:\projectC++\testGame\src\Resource\Game.cpp(51): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<hero> std::make_shared<hero,std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec2>(std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec2 &&)"
+D:\projectC++\testGame\src\Resource\Game.cpp(56): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::shared_ptr<hero> std::make_shared<hero,std::shared_ptr<Renderer::AnimatedSprite>&,double,glm::vec2>(std::shared_ptr<Renderer::AnimatedSprite> &,double &&,glm::vec2 &&)"
   ChickenShooter.vcxproj -> D:\projectC++\testGame\build\bin\Debug\ChickenShooter.exe

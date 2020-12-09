@@ -55,8 +55,9 @@ int SDL_main(int argc, char* argv[]) {
 	//glUniformMatrix4fv(glGetUniformLocation(program->getProgramId(), "modelMatrix"), 1, GL_FALSE, glm::value_ptr(modelMatrix));
 	//glUniformMatrix4fv(glGetUniformLocation(program->getProgramId(), "projectionMatrix"), 1, GL_FALSE, glm::value_ptr(projectionMatrix));
 	auto last_time = std::chrono::high_resolution_clock::now();
-	
-	while (!quit) {	
+	std::pair<float, float> para = ResourceManager::getSizeObject("GroundTextureAtlas");
+	std::cout << "width: " << para.first << "height: " << para.second << std::endl;
+	while (!game.is_quit()) {	
 	
 		glClearColor(0, 0.23, 0.45, 2);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -64,21 +65,20 @@ int SDL_main(int argc, char* argv[]) {
 		uint64_t duration = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - last_time).count();
 		last_time = currentTime;
 		//animatedSprite->update(duration);
-		game.update(duration);
 		
 		//animatedSprite->renderer();
-		//game.render();
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		game.render();
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		game.update(duration);
+		game.intersectObject();
 		//game.bind();
 	  //  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	//	game.unbind_back();
 		
-		while (SDL_PollEvent(&e) != 0) {
-			if (e.type == SDL_QUIT) {
-				quit = true;
-			}
+		//while (SDL_PollEvent(&e) != 0) {
+		
 			
-		}
+		//}
 		
 		SDL_GL_SwapWindow(window);
 	}

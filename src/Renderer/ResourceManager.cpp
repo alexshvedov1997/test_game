@@ -16,6 +16,7 @@ std::map < std::string, std::shared_ptr<Renderer::ShaderProgram>>  ResourceManag
 std::map < std::string, std::shared_ptr<Renderer::Texture2D>>  ResourceManager::m_textureMap;
 std::map < std::string, std::shared_ptr<Renderer::Sprite>> ResourceManager::m_spriteMap;
 std::map < std::string, std::shared_ptr<Renderer::AnimatedSprite>> ResourceManager::m_animatedSpritesMap;
+std::map<std::string, std::pair<float, float>> ResourceManager::m_sizeObjectMap;
 
 void ResourceManager::load_resource(const std::string& path) {
 		size_t pos = path.find_last_of("\\");
@@ -141,6 +142,8 @@ std::shared_ptr<Renderer::Texture2D> ResourceManager::loadTextureAtlas(const std
 		 const unsigned int textureHeight = pTexture->height();
 		 unsigned int currentSubTextureOffsetX = 0;
 		 unsigned int currentSubTextureOffsetY = textureHeight;
+		 m_sizeObjectMap.emplace(textureName, std::make_pair(static_cast<float>(subTextureWidth),
+			 static_cast<float>(subTextureHeight)));
 		 for (const auto& currentSubTextureName : subTextures) {
 			 glm::vec2 leftBottomUV(static_cast<float>(currentSubTextureOffsetX) / textureWidth,
 				 static_cast<float>(currentSubTextureOffsetY - subTextureHeight) / textureHeight);
@@ -190,7 +193,15 @@ std::shared_ptr<Renderer::AnimatedSprite> ResourceManager::loadAnimatedSprite(co
 		return NULL;
 	}
 	return newSprite;
+}
 
+std::pair<float, float> ResourceManager::getSizeObject(std::string objectName) {
+	static std::map<std::string, std::pair<float, float>>::const_iterator it = m_sizeObjectMap.find(objectName);
+	if (it == m_sizeObjectMap.end()) {
+		std::cerr << "Can't find size object" << std::endl;
+		return std::pair<float, float>(0.f, 0.f);
+	}
+	return it->second;
 }
 
 

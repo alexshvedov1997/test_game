@@ -62,7 +62,7 @@ namespace Renderer {
 
 	}
 
-	void Sprite::renderer(bool mirrored) {
+	void Sprite::renderer(bool mirrored, float level) {
 		m_program->use();
 		glm::mat4 model(1.f);
 		model = glm::translate(model, glm::vec3(m_position, 0.f));
@@ -70,13 +70,17 @@ namespace Renderer {
 		model = glm::rotate(model, glm::radians(m_rotation), glm::vec3(0.f, 0.f, 1.f));
 		model = glm::translate(model, glm::vec3(-0.5f * m_size.x, -0.5f * m_size.y, 0.f));
 		model = glm::scale(model, glm::vec3(m_size, 1.f));
-		if (mirrored)
+		//if (mirrored)
+		
+		glUniform1f(glGetUniformLocation(m_program->getProgramId(), "level"), level);
 			model *= glm::vec4(-1.f, 1.f, 1.f, 1.f);
 		m_model = model;
 		glUniformMatrix4fv(glGetUniformLocation(m_program->getProgramId(), "modelMatrix"), 1, GL_FALSE, glm::value_ptr(model));
+
 		m_elementBuffer->bind();
 		m_vertexArray->bind();
 		m_texture->bind();
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
 
 }

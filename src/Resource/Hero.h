@@ -9,14 +9,17 @@ class hero {
 public:
 	enum class eOrientation {
 		Left,
-		Right
+		Right,
+		Stand
 	};
 
 	hero(std::shared_ptr<Renderer::AnimatedSprite> pSprite, const float velocity, glm::vec2 position);
-	void render(bool mirrored = false);
+	void render(bool mirrored = false, float level = 0.1f);
 	void update(uint64_t delta);
 	void setOrientation(eOrientation orientation);
 	void move(bool move);
+	glm::vec2 getPosition() { return m_position; }
+	//glm::vec2 getSizeObjectInSpace();
 private:
 	eOrientation m_orienation;
 	bool m_move;

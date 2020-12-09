@@ -37,7 +37,7 @@ namespace Renderer {
 	static std::shared_ptr<Renderer::Texture2D> loadTextureAtlas(const std::string& textureName, 
 		const std::string& path, std::vector < std::string> subTextures,
 		int subTextureWidth, int subTextureHeight);
-
+	static std::pair<float, float> getSizeObject(std::string objectName);
 
 	private:
 		static std::string m_path;
@@ -45,4 +45,5 @@ namespace Renderer {
 	    static	std::map < std::string, std::shared_ptr<Renderer::Texture2D>> m_textureMap;
 		static std::map < std::string, std::shared_ptr<Renderer::Sprite>> m_spriteMap;
 		static std::map < std::string, std::shared_ptr<Renderer::AnimatedSprite>> m_animatedSpritesMap;
+		static std::map<std::string, std::pair<float, float>> m_sizeObjectMap;
 };

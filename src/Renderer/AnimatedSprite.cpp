@@ -102,7 +102,7 @@ namespace Renderer {
 		
 	}
 
-	void AnimatedSprite::renderer(bool mirrored) {
+	void AnimatedSprite::renderer(bool mirrored, float level) {
 		if (m_dirty) {
 			auto subTexture = m_texture->getSubTexture2D(m_currentAnimationDurations->second[m_currentFrame].first);
 
@@ -116,7 +116,7 @@ namespace Renderer {
 			m_vertexBuffer->unbind();
 			m_dirty = false;
 		}
-		Sprite::renderer(mirrored);
+		Sprite::renderer(mirrored, level);
 	}
 
 }

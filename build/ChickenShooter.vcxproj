@@ -333,6 +333,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\Sprite.cpp" />
     <ClInclude Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.h" />
     <ClCompile Include="D:\projectC++\testGame\src\Renderer\AnimatedSprite.cpp" />
+    <ClInclude Include="D:\projectC++\testGame\src\Physics\PhysicsManager.h" />
+    <ClCompile Include="D:\projectC++\testGame\src\Physics\PhysicsManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:\projectC++\testGame\build\ZERO_CHECK.vcxproj">
