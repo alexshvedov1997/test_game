@@ -19,6 +19,7 @@ public:
 	void setOrientation(eOrientation orientation);
 	void move(bool move);
 	glm::vec2 getPosition() { return m_position; }
+	std::shared_ptr<Renderer::AnimatedSprite> getHeroSprite() { return m_pSprite; }
 	//glm::vec2 getSizeObjectInSpace();
 private:
 	eOrientation m_orienation;

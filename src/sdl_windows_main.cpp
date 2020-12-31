@@ -18,6 +18,7 @@
 #include <vector>
 #include <utility>
 #include <chrono>
+#include "Physics/PhysicsManager.h"
 
 
 using namespace std;
@@ -57,6 +58,9 @@ int SDL_main(int argc, char* argv[]) {
 	auto last_time = std::chrono::high_resolution_clock::now();
 	std::pair<float, float> para = ResourceManager::getSizeObject("GroundTextureAtlas");
 	std::cout << "width: " << para.first << "height: " << para.second << std::endl;
+	int count = 0;
+	game.PrintHeroCoord();
+	
 	while (!game.is_quit()) {	
 	
 		glClearColor(0, 0.23, 0.45, 2);
@@ -65,12 +69,17 @@ int SDL_main(int argc, char* argv[]) {
 		uint64_t duration = std::chrono::duration_cast<std::chrono::nanoseconds>(currentTime - last_time).count();
 		last_time = currentTime;
 		//animatedSprite->update(duration);
-		
+		PhysicsManager::intersectionObject("HeroTextureAtlas","GroundTextureAtlas");
 		//animatedSprite->renderer();
 		game.render();
 		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		game.update(duration);
 		game.intersectObject();
+		if (count == 1000) {
+			
+			count = 0;
+		}
+		count++;
 		//game.bind();
 	  //  glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	//	game.unbind_back();

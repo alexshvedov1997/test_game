@@ -63,7 +63,8 @@ void Game::init() {
 	auto animatedSprite2 = ResourceManager::getAnimatedSprite("GroundSprite");
 	glm::vec2 pos = animatedSprite2->getPosition();
 	glm::vec2 sz = animatedSprite2->getScale();
-		std::pair<glm::vec2, glm::vec2> size_cord = PhysicsManager::loadObjectSizeCords("GroundTextureAtlas", pos, sz);
+		PhysicsManager::loadObjectSizeCords("GroundTextureAtlas", pos, sz);
+		std::pair<glm::vec2, glm::vec2> size_cord = PhysicsManager::getObjectSizeCords("GroundTextureAtlas");
 		std::cout << "First coords:: " << size_cord.first.x << " :: " << size_cord.first.y << std::endl;
 		std::cout << "Second coords:: " << size_cord.second.x << " :: " << size_cord.second.y << std::endl;
 }
@@ -135,4 +136,12 @@ void Game::update(float delta) {
 	}
 	m_Hero->update(delta);
 	m_Hero->render(false, 0.01);
+}
+
+void Game::PrintHeroCoord() {
+	glm::vec2 sz = m_Hero->getHeroSprite()->getScale();
+	glm::vec2 pos = m_Hero->getPosition();
+		std::pair<glm::vec2, glm::vec2> size_cord = PhysicsManager::loadObjectSizeCords("HeroTextureAtlas", pos, sz);
+		std::cout << "Hero First coords:: " << size_cord.first.x << " :: " << size_cord.first.y << std::endl;
+		std::cout << " Hero Second coords:: " << size_cord.second.x << " :: " << size_cord.second.y << std::endl;
 }

@@ -13,6 +13,7 @@ public:
 	void render();
 	void update(float delta);
 	void intersectObject();
+	void PrintHeroCoord();
 	bool is_quit() {
 		return m_quit;
 	}
